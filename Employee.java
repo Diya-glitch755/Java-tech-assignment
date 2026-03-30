@@ -1,50 +1,22 @@
-import java.util.Scanner;
-
 class Employee {
+    String name;
+    int id;
+    static int count = 0;
 
-    int empno;
-    String ename;
-    float basic, hra, da, netpay;
-
-    float Calculate() {
-        netpay = basic + hra + da;
-        return netpay;
+    Employee(String n, int i) {
+        name = n;
+        id = i;
+        count++;
     }
 
-    void havedata() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter empno: ");
-        empno = sc.nextInt();
-
-        System.out.print("Enter name: ");
-        ename = sc.next();
-
-        System.out.print("Enter basic: ");
-        basic = sc.nextFloat();
-
-        System.out.print("Enter hra: ");
-        hra = sc.nextFloat();
-
-        System.out.print("Enter da: ");
-        da = sc.nextFloat();
-
-        Calculate();
-    }
-
-    void dispdata() {
-        System.out.println("Empno: " + empno);
-        System.out.println("Name: " + ename);
-        System.out.println("Basic: " + basic);
-        System.out.println("HRA: " + hra);
-        System.out.println("DA: " + da);
-        System.out.println("Net Pay: " + netpay);
+    static void displayCount() {
+        System.out.println("Total Employees: " + count);
     }
 
     public static void main(String[] args) {
-        Employee e = new Employee();
+        new Employee("A", 1);
+        new Employee("B", 2);
 
-        e.havedata();
-        e.dispdata();
+        Employee.displayCount();
     }
 }
